@@ -37,7 +37,7 @@ def mainPart():
             if currentCity != city and currentCity != "":
                 print currentCity,"\t","\t","\t",dict[currentCity]
             if currentState != state and currentState != "":
-                    print currentState,"\t","\t",dict[currentState]
+                print currentState,"\t","\t",dict[currentState]
             currentSchoolGrade = schoolGrade
             currentCity = city
             currentState = state
