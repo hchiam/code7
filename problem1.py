@@ -6,14 +6,12 @@ dict = {}
 # a function:
 def createEntries(s,c,g,n,*x): # this function has *x, which means it can take any number of parameters, besides the minimum of four
     listFields = [s,c,g,n]
-    # print s,c,g,n
     for field in listFields:
         key = field
         if key in dict:
             dict[key] += int(n) # add to running number
         else:
             dict[key] = int(n) # create new entry in dictionary
-        # print "CURRENT DICTIONARY:  ", dict
 
 def mainPart():
     currentSchoolGrade = ""
@@ -23,14 +21,11 @@ def mainPart():
     # here is the main part of the code, where the file is read & processed:
     with open("problem1.csv") as file:
         for line in file:
-            # print line
             splitLine = line.split(",")
-            # print "ENTRY READ:  ",splitLine
             state = splitLine[0]
             city = splitLine[1]
             schoolGrade = splitLine[2]
             number = int(splitLine[3][1:])
-            # print number
             createEntries(state,city,schoolGrade,number)
             if currentSchoolGrade != schoolGrade and currentSchoolGrade != "":
                 print currentSchoolGrade,"\t","\t","\t","\t",dict[currentSchoolGrade]
