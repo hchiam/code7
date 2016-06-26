@@ -1,4 +1,5 @@
 // 2.b) No loop.  Only constants, no variables.
+// (The same code technically fulfills the requirements for 2.e) as well.)
 public class problem2b{
     
     public static void main(String []args){
