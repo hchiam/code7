@@ -10,7 +10,7 @@ x = 0
 y = -100
 
 # define a function to do the recursive stuff:
-def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150):
+def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150 ):
     level = setLevel
     # account for if user enters 0 instead of 1
     if level <= 0:
@@ -21,7 +21,6 @@ def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150):
         level = 9
     # update positions for next line
     x,y = drawLine(x,y,r,w,length)
-    #turtle.settiltangle(r)
     if level > 1:
         level -= 1
         #x += 0
@@ -43,7 +42,7 @@ def drawLine(x,y,rotation,width,length):
     return turtle.position()
 
 # the part of the program that "interacts" with the user:
-levels = 7
+levels = 7 # (set to 7 levels) <-- TRY CHANGING THIS TO ANY NUMBER FROM 1 TO 9
 turtle.hideturtle()
 turtle.speed(0) # this makes it go at full speed
 turtle.goto(x,y) # go to starting position

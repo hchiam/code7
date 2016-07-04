@@ -11,7 +11,7 @@ x = 0
 y = -100
 
 # define a function to do the recursive stuff:
-def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150):
+def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150 ):
     level = setLevel
     # account for if user enters 0 instead of 1
     if level <= 0:
@@ -22,10 +22,9 @@ def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150):
         level = 9
     # update positions for next line
     x,y = drawLine(x,y,r,w,length)
-    #turtle.settiltangle(r)
     if level > 1:
         level -= 1
-        #x += 0
+        #x += 5
         #y += 10
         #r += 60
         w /= 1.5
