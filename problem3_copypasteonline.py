@@ -29,7 +29,7 @@ def recursiveStuff( setLevel=1, x=0, y=-100, r=90, w=10, length=150 ):
         w /= 1.5
         length /= 1.5
         recursiveStuff(level, x, y, r+60, w, length) # recursive call with updated parameters
-        recursiveStuff(level, x, y, r-60, w, length) # recursive call with updated parameters
+        recursiveStuff(level, x, y, r-45, w, length) # recursive call with updated parameters
 
 # define a function to draw a line segment:
 def drawLine(x,y,rotation,width,length):
