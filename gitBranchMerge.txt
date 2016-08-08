@@ -1,15 +1,27 @@
-#Basic Terminal Commands for Git Branch and Merge, in one place:
+Basic Terminal Commands for Git Branch and Merge, in one place:
 
-#First navigate using cd and check what files are there using ls before typing the following commands.  You'll be typing each command one at a time (don't bother typing the comments in blue, which start with "#").   
+First navigate using cd and check what files are there using ls before typing the following commands.  
+You'll be typing each command one at a time (don't bother typing the comments in blue, which start with "#").   
 
-#In the commands below, "nameOfBranch" is the name of the branch (a copy of files "branching" temporarily from the master copy).  This would be the name of the branch that you want to create, edit, remotely "save", merge with the original master copy, and finally get rid of:
+In the commands below, "nameOfBranch" is the name of the branch (a copy of files "branching" temporarily from the master copy).  
+This would be the name of the branch that you want to create, edit, remotely "save", merge with the original master copy, and finally get rid of:
 
 # create branch & use its files
 git branch nameOfBranch
-git checkout nameOfBranch  # make changes to files on your computer…  # transfer files to remote repository, with a message describing the “save”
+git checkout nameOfBranch
+
+# make changes to files on your computer…
+
+# transfer files to remote repository, with a message describing the “save”
 git add —all
 git commit -m “message”
-git push origin nameOfBranch  # merge changes into master (by first moving to master branch)
+git push origin nameOfBranch
+
+# merge changes into master (by first moving to master branch)
 git checkout master
-git merge nameOfBranch  git push origin master  # get rid of old branch
-git branch -D nameOfBranch 
+git merge nameOfBranch
+
+git push origin master
+
+# get rid of old branch
+git branch -D nameOfBranch
