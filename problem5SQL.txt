@@ -1,0 +1,5 @@
+/*the 'val' column shows the values for the pascal triangle row*/
+CALL getRow(1);
+CALL getRow(2);
+CALL getRow(3);
+CALL getRow(4);

@@ -1,0 +1,31 @@
+CREATE TABLE pascalTriangle (
+  row INT NOT NULL, /*row of pascal triangle*/
+  entry INT NOT NULL, /*entry along that row*/
+  val INT NOT NULL, /*value of entry along that row*/
+  PRIMARY KEY (row, entry) /*a composite primary key because 
+  it combines two fields (row and entry) to make the unique id*/
+);
+
+INSERT INTO pascalTriangle VALUES 
+(1, 1, 1),
+(2, 1, 1),
+(2, 2, 1),
+(3, 1, 1),
+(3, 2, 2),
+(3, 3, 1),
+(4, 1, 1),
+(4, 2, 3),
+(4, 3, 3),
+(4, 4, 1),
+(5, 1, 1),
+(5, 2, 4),
+(5, 3, 6),
+(5, 4, 4),
+(5, 5, 1);
+
+CREATE PROCEDURE getRow(myRow INT)
+BEGIN
+  SET @row = myRow;
+  /*SET @entry = myEntry;*/
+  SELECT * FROM pascalTriangle WHERE row=@row;
+END
