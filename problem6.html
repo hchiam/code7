@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        <script>
+            // sources:
+            // http://www.java2s.com/Tutorials/Javascript/Canvas/Shape/Draw_a_triangle_on_HTML5_Canvas_in_JavaScript.htm
+            // http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_empty
+            
+            // function for drawing one triangle:
+            function drawTriangle(context, x, y, triangleWidth, triangleHeight, colour){
+                context.beginPath();
+                context.moveTo(x, y);
+                context.lineTo(x + triangleWidth/2, y + triangleHeight);
+                context.lineTo(x - triangleWidth/2, y + triangleHeight);
+                context.closePath();
+                context.fillStyle = colour;
+                context.fill();
+            }
+        
+            // actions to do on load of page:
+            window.onload = function(){
+                var canvas = document.getElementById("myCanvas");
+                var context = canvas.getContext("2d");
+                
+                var grd;
+                var w = 100;
+                var h = 100;
+                var x = canvas.width/2;
+                var y = 0;
+                var colour = "lightblue";
+                
+                drawTriangle(context, x,            y,              w,          h, colour);
+                
+                drawTriangle(context, x,            y+h,            w/2,        -w/2, "red");
+                
+                drawTriangle(context, x,            y+h/2,          w/4,        -h/4, "red"); //a
+                drawTriangle(context, x-w/4,        y+h,            w/4,        -h/4, "red"); //b
+                drawTriangle(context, x+w/4,        y+h,            w/4,        -h/4, "red"); //c
+                
+                //a
+                drawTriangle(context, x,            y+h/4,          w/8,        -h/8, "orange");
+                drawTriangle(context, x-w/4+w/8,    y+h/2,          w/8,        -h/8, "orange");
+                drawTriangle(context, x+w/4-w/8,    y+h/2,          w/8,        -h/8, "orange");
+                
+                //b
+                drawTriangle(context, x-w/4,        y+h/2+h/4,      w/8,        -h/8, "green");
+                drawTriangle(context, x-w/4-w/8,    y+h/2+h/2,      w/8,        -h/8, "green");
+                drawTriangle(context, x-w/4+w/8,    y+h/2+h/2,      w/8,        -h/8, "green");
+                
+                //c
+                drawTriangle(context, x+w/4,        y+h/2+h/4,      w/8,        -h/8, "black");
+                drawTriangle(context, x+w/4-w/8,    y+h/2+h/2,      w/8,        -h/8, "black");
+                drawTriangle(context, x+w/4+w/8,    y+h/2+h/2,      w/8,        -h/8, "black");
+                
+                //aa
+                drawTriangle(context, x,                y+h/8,          w/16,        -h/16, "blue"); //aa
+                drawTriangle(context, x-w/4+w/8+w/16,   y+h/4,          w/16,        -h/16, "blue"); //ab
+                drawTriangle(context, x+w/4-w/8-w/16,   y+h/4,          w/16,        -h/16, "blue"); //ac
+                
+                // then animate
+                
+                // then do square version
+                
+            };
+        </script>
+        <canvas id="myCanvas" width="500" height="500" style="border:1px solid #000000;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+    </body>
+</html>
