@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+    <body>
+        
+        <input id="iterationsSquare" placeholder="enter number of iterations" /></br>
+        
+        <button onclick="generateSierpinksiSquare()">Animate</button></br>
+        
+        <script>
+            // initial references:
+            // http://blog.smartbear.com/programming/7-silly-programming-challenges-to-do-for-fun/
+            // http://www.java2s.com/Tutorials/Javascript/Canvas/Shape/Draw_a_Square_on_HTML5_Canvas_in_JavaScript.htm
+            // http://www.w3schools.com/html/tryit.asp?filename=tryhtml5_canvas_empty
+            
+            // function for drawing one square:
+            function drawSquare(context, x, y, w, colour) {
+                x = x - w/2;
+                y = y + w/2;
+                context.beginPath();
+                context.moveTo(x,       y);
+                context.lineTo(x,       y - w);
+                context.lineTo(x + w,   y - w);
+                context.lineTo(x + w,   y);
+                context.closePath();
+                context.fillStyle = colour;
+                context.fill();
+            }
+        
+            function recursiveSquares(context,times,x,y,w) {
+                if (times==1) {
+                    w=w/3;
+                    setTimeout(function() {
+                        drawSquare(context, x -w, y,    w/3, "white");
+                        drawSquare(context, x +w, y,    w/3, "white");
+                        drawSquare(context, x,    y -w, w/3, "white");
+                        drawSquare(context, x,    y +w, w/3, "white");
+                        drawSquare(context, x -w, y -w, w/3, "white");
+                        drawSquare(context, x -w, y +w, w/3, "white");
+                        drawSquare(context, x +w, y -w, w/3, "white");
+                        drawSquare(context, x +w, y +w, w/3, "white");
+                    }, 1000); // delay by 1 second
+                } else {
+                    w=w/3;
+                    setTimeout(function() {
+                        drawSquare(context, x -w, y,    w/3, "white");
+                        drawSquare(context, x +w, y,    w/3, "white");
+                        drawSquare(context, x,    y -w, w/3, "white");
+                        drawSquare(context, x,    y +w, w/3, "white");
+                        drawSquare(context, x -w, y -w, w/3, "white");
+                        drawSquare(context, x -w, y +w, w/3, "white");
+                        drawSquare(context, x +w, y -w, w/3, "white");
+                        drawSquare(context, x +w, y +w, w/3, "white");
+                        recursiveSquares(context,times-1, x -w,   y,      w);
+                        recursiveSquares(context,times-1, x +w,   y,      w);
+                        recursiveSquares(context,times-1, x,      y -w,   w);
+                        recursiveSquares(context,times-1, x,      y +w,   w);
+                        recursiveSquares(context,times-1, x -w,   y -w,   w);
+                        recursiveSquares(context,times-1, x -w,   y +w,   w);
+                        recursiveSquares(context,times-1, x +w,   y -w,   w);
+                        recursiveSquares(context,times-1, x +w,   y +w,   w);
+                    }, 1000); // delay by 1 second
+                }
+            }
+            
+            function makeSureNumberAndBelow7(x) {
+                x = Number(x);
+                if (isNaN(x)) {
+                    return false;
+                } else if (x<7 && x>=0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            
+            function generateSierpinksiSquare() {
+                
+                var iteras = document.getElementById("iterationsSquare").value-1;
+                
+                if (makeSureNumberAndBelow7(iteras) || document.getElementById("iterationsSquare").value=="") {
+                    
+                    if (document.getElementById("iterationsSquare").value=="") {
+                        iteras = 3; // default value if nothing entegreen
+                    }
+                    
+                    var canvas = document.getElementById("myCanvasSquare");
+                    var context = canvas.getContext("2d");
+                    
+                    context.clearRect(0, 0, canvas.width, canvas.height); // refresh canvas
+                    
+                    var w = 500;
+                    var x = canvas.width/2;
+                    var y = canvas.height/2;
+                    
+                    var midL, midR, midT, newBottom;
+                    
+                    drawSquare(context, x, y, w, "black"); // this is just the background
+                    
+                    drawSquare(context, x, y, w/3, "white"); // this is the "seed" Square which the rest "bud" from
+                    
+                    if (iteras>0) { // otherwise iteras = 0 goes on infinitely
+                        recursiveSquares(context,iteras,x,y,w);
+                    }
+                    
+                }
+                
+            };
+            
+        </script>
+        
+        <canvas height="500" id="myCanvasSquare" style="border: 1px solid #000000;" width="500">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        
+    </body>
+</html>
