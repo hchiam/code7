@@ -7,7 +7,7 @@ Find blog posts for each problem here:  [https://hchiam.blogspot.ca/2016/06/code
 
 Problem 1:
 
-![pic1](https://github.com/hchiam/code7/blob/master/pictures/1.png "Problem 1")
+![pic1](https://github.com/hchiam/code7/blob/master/pictures/1.jpg "Problem 1")
 
 Problem 2:
 
