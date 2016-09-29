@@ -27,4 +27,5 @@ Problem 5:
 
 Problem 6:
 
-![pic6](https://github.com/hchiam/code7/blob/master/pictures/6.png "Problem 6")
+![pic6](https://github.com/hchiam/code7/blob/master/pictures/6.png "Problem 6a")
+![pic6b](https://github.com/hchiam/code7/blob/master/pictures/6b.png "Problem 6b")
